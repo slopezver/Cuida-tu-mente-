@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuida tu mente - Salud Mental Adolescente</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#F8F0FC',
+                            card: '#FFFFFF',
+                            softPink: '#F4D3E5',
+                            accentPink: '#E8A5C8',
+                            lilaLight: '#E6D5F2',
+                            lilaMedium: '#9B6B9E',
+                            lilaDark: '#6B4E71',
+                            textDark: '#3A2E39',
+                            softBeige: '#FAF4EF'
+                        }
+                    },
+                    fontFamily: {
+                        title: ['Playfair Display', 'serif'],
+                        body: ['Quicksand', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #F8F0FC;
+            color: #3A2E39;
+        }
+
+        .font-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animación para el ejercicio de respiración */
+        @keyframes breatheAnimation {
+            0% { transform: scale(1); opacity: 0.6; }
+            40% { transform: scale(1.6); opacity: 0.95; } /* Inhala 4s */
+            70% { transform: scale(1.6); opacity: 0.95; } /* Sostén 7s */
+            100% { transform: scale(1); opacity: 0.6; }   /* Exhala 8s */
+        }
+
+        .breathing-circle {
+            animation-duration: 19s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+
+        .is-breathing {
+            animation-name: breatheAnimation;
+        }
+
+        /* Glassmorphism & Shadow utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(244, 211, 229, 0.5);
+        }
+
+        .custom-shadow {
+            box-shadow: 0 10px 30px -5px rgba(155, 107, 158, 0.12);
+        }
+
+        .custom-shadow-lg {
+            box-shadow: 0 20px 40px -10px rgba(107, 78, 113, 0.18);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8F0FC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E8A5C8;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9B6B9E;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-softPink selection:text-brand-lilaDark">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-brand-softPink/40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-softPink to-brand-lilaMedium flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-brain text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-title text-2xl font-bold text-brand-lilaDark tracking-wide block leading-none">Cuida tu mente</span>
+                        <span class="text-xs text-brand-lilaMedium font-medium tracking-wider uppercase">Espacio seguro</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden lg:flex items-center space-x-1 xl:space-x-3 text-sm font-semibold text-brand-textDark">
+                    <a href="#inicio" class="px-3 py-2 rounded-xl hover:bg-brand-bg hover:text-brand-lilaMedium transition-colors">Inicio</a>
+                    <a href="#que-es" class="px-3 py-2 rounded-xl hover:bg-brand-bg hover:text-brand-lilaMedium transition-colors">¿Qué es?</a>
+                    <a href="#emociones" class="px-3 py-2 rounded-xl hover:bg-brand-bg hover:text-brand-lilaMedium transition-colors">Emociones</a>
+                    <a href="#ansiedad" class="px-3 py-2 rounded-xl hover:bg-brand-bg hover:text-brand-lilaMedium transition-colors">Ansiedad</a>
+                    <a href="#autoestima" class="px-3 py-2 rounded-xl hover:bg-brand-bg hover:text-brand-lilaMedium transition-colors">Autoestima</a>
+                    <a href="#redes" class="px-3 py-2 rounded-xl hover:bg-brand-bg hover:text-brand-lilaMedium transition-colors">Redes</a>
+                    <a href="#relaciones" class="px-3 py-2 rounded-xl hover:bg-brand-bg hover:text-brand-lilaMedium transition-colors">Relaciones</a>
+                    <a href="#recursos" class="px-3 py-2 rounded-xl hover:bg-brand-bg hover:text-brand-lilaMedium transition-colors">Blog</a>
+                </nav>
+
+                <!-- SOS Button Desktop -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <a href="#pide-ayuda" class="bg-gradient-to-r from-brand-lilaMedium to-brand-lilaDark hover:from-brand-lilaDark hover:to-brand-lilaMedium text-white px-5 py-2.5 rounded-full font-bold shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-heart-pulse text-brand-softPink animate-pulse"></i>
+                        Pide Ayuda S.O.S.
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-xl text-brand-lilaDark hover:bg-brand-bg focus:outline-none" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 border-b border-brand-softPink/50 px-4 pt-2 pb-6 space-y-2 text-base font-medium shadow-xl">
+            <a href="#inicio" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-brand-bg text-brand-textDark">Inicio</a>
+            <a href="#que-es" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-brand-bg text-brand-textDark">¿Qué es la Salud Mental?</a>
+            <a href="#emociones" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-brand-bg text-brand-textDark">Emociones & Regulación</a>
+            <a href="#ansiedad" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-brand-bg text-brand-textDark">Ansiedad y Estrés</a>
+            <a href="#autoestima" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-brand-bg text-brand-textDark">Autoestima & Amor Propio</a>
+            <a href="#depresion" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-brand-bg text-brand-textDark">Depresión & Señales</a>
+            <a href="#redes" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-brand-bg text-brand-textDark">Redes Sociales & Bienestar</a>
+            <a href="#relaciones" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-brand-bg text-brand-textDark">Relaciones Saludables</a>
+            <a href="#autocuidado" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-brand-bg text-brand-textDark">Consejos de Autocuidado</a>
+            <a href="#recursos" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-brand-bg text-brand-textDark">Recursos & FAQ</a>
+            <a href="#contacto" class="mobile-link block px-4 py-2.5 rounded-xl hover:bg-brand-bg text-brand-textDark">Buzón Anónimo</a>
+            <div class="pt-2">
+                <a href="#pide-ayuda" class="mobile-link w-full bg-brand-lilaMedium text-white text-center py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-heart-pulse"></i> Necesito Ayuda Ahora
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- 1. INICIO / HERO SECTION -->
+        <section id="inicio" class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-brand-bg via-white to-brand-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-softPink/60 text-brand-lilaDark text-sm font-semibold border border-brand-accentPink/30">
+                            <i class="fa-solid fa-sparkles text-brand-lilaMedium"></i> Tu espacio seguro, sin juicios
+                        </span>
+                        <h1 class="font-title text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-lilaDark leading-tight">
+                            Tu mente importa, tus emociones <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-lilaMedium to-brand-accentPink">también valen.</span>
+                        </h1>
+                        <p class="text-lg sm:text-xl text-brand-textDark/80 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                            Bienvenid@ a un rincón diseñado especialmente para ti. Aquí encontrarás herramientas, respuestas claras y refugio para navegar la adolescencia con tranquilidad, amor propio y compasión.
+                        </p>
+                        
+                        <!-- Frase destacada -->
+                        <div class="p-4 rounded-2xl bg-white/70 border-l-4 border-brand-lilaMedium shadow-sm italic text-brand-lilaDark font-medium">
+                            "No tienes que poder con todo tú sol@. Sentir demasiado no te hace débil, te hace humano."
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="#emociones" class="w-full sm:w-auto text-center bg-brand-lilaMedium hover:bg-brand-lilaDark text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                                Empieza a explorarte <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                            </a>
+                            <a href="#pide-ayuda" class="w-full sm:w-auto text-center bg-brand-softPink/80 hover:bg-brand-softPink text-brand-lilaDark px-8 py-4 rounded-2xl font-bold transition-all border border-brand-accentPink/40">
+                                Necesito ayuda ahora
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Ilustración / Tarjetas flotantes -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative w-full max-w-md mx-auto">
+                            <!-- SVG Illustration Container -->
+                            <div class="w-full h-80 sm:h-96 rounded-3xl bg-gradient-to-tr from-brand-softPink to-brand-lilaLight p-6 flex flex-col items-center justify-center relative shadow-2xl border border-white">
+                                <svg class="w-48 h-48 text-brand-lilaDark animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#F4D3E5" fill-opacity="0.5"/>
+                                    <path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="12" r="9" stroke="currentColor"/>
+                                </svg>
+                                <p class="font-title text-xl text-brand-lilaDark font-bold mt-4 text-center">Un paso a la vez</p>
+                                <p class="text-xs text-brand-textDark/70 text-center">Inhala calma, exhala presiones</p>
+                            </div>
+
+                            <!-- Floating Badges -->
+                            <div class="absolute -top-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-brand-softPink flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+                                    <i class="fa-solid fa-shield-heart text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-gray-500">100% Seguro</p>
+                                    <p class="text-sm font-bold text-brand-lilaDark">Sin Juicios</p>
+                                </div>
+                            </div>
+
+                            <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl border border-brand-softPink flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 text-brand-lilaMedium flex items-center justify-center">
+                                    <i class="fa-solid fa-smile-beam text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-gray-500">Comunidad</p>
+                                    <p class="text-sm font-bold text-brand-lilaDark">Apoyo Mutuo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ¿QUÉ ES LA SALUD MENTAL? -->
+        <section id="que-es" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-brand-lilaMedium font-bold text-sm tracking-wider uppercase">Entendiendo lo fundamental</span>
+                    <h2 class="font-title text-3xl sm:text-4xl font-bold text-brand-lilaDark mt-2">¿Qué es la Salud Mental?</h2>
+                    <p class="text-brand-textDark/80 mt-4 text-lg">
+                        La salud mental no significa estar feliz todo el tiempo. Es el equilibrio emocional, psicológico y social que te permite gestionar el estrés cotidiano, relacionarte bien y tomar decisiones.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Concepto 1 -->
+                    <div class="p-8 rounded-3xl bg-brand-bg border border-brand-softPink/60 custom-shadow hover:translate-y-[-4px] transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-softPink flex items-center justify-center text-brand-lilaDark text-2xl mb-6">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <h3 class="font-title text-xl font-bold text-brand-lilaDark mb-3">Es un Espectro Vivo</h3>
+                        <p class="text-brand-textDark/80 text-sm leading-relaxed">
+                            Cambia cada día. Tener días tristes, estresados o confusos es perfectamente normal y no significa que estés "roto" o que fallaste.
+                        </p>
+                    </div>
+
+                    <!-- Concepto 2 -->
+                    <div class="p-8 rounded-3xl bg-brand-bg border border-brand-softPink/60 custom-shadow hover:translate-y-[-4px] transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-lilaLight flex items-center justify-center text-brand-lilaDark text-2xl mb-6">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h3 class="font-title text-xl font-bold text-brand-lilaDark mb-3">Tan Física como la Salud Corporal</h3>
+                        <p class="text-brand-textDark/80 text-sm leading-relaxed">
+                            Así como cuidas una pierna rota o una gripe, tu cerebro y emociones requieren descanso, nutrición, comprensión y atención médica si es necesario.
+                        </p>
+                    </div>
+
+                    <!-- Concepto 3 -->
+                    <div class="p-8 rounded-3xl bg-brand-bg border border-brand-softPink/60 custom-shadow hover:translate-y-[-4px] transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-softPink flex items-center justify-center text-brand-lilaDark text-2xl mb-6">
+                            <i class="fa-solid fa-hand-holding-hand"></i>
+                        </div>
+                        <h3 class="font-title text-xl font-bold text-brand-lilaDark mb-3">Sin Estigmas ni Tabúes</h3>
+                        <p class="text-brand-textDark/80 text-sm leading-relaxed">
+                            Hablar de lo que sientes es un acto de valentía. Pedir ayuda no te resta independencia, al contrario, te fortalece.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mitos vs Realidades -->
+                <div class="mt-16 bg-gradient-to-r from-brand-bg via-white to-brand-bg rounded-3xl p-8 border border-brand-softPink">
+                    <h3 class="font-title text-2xl font-bold text-brand-lilaDark text-center mb-8">Mitos vs. Realidades</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-2xl border-l-4 border-red-400 shadow-sm">
+                            <p class="text-xs font-bold text-red-500 uppercase tracking-wider mb-1"><i class="fa-solid fa-xmark-circle mr-1"></i> Mito</p>
+                            <p class="font-semibold text-brand-lilaDark">"Las enfermedades mentales son solo para llamar la atención o dramatizar."</p>
+                            <p class="text-sm text-gray-600 mt-2">La salud mental involucra factores biológicos, psicológicos y ambientales reales. Nadie elige sufrir.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border-l-4 border-green-400 shadow-sm">
+                            <p class="text-xs font-bold text-green-600 uppercase tracking-wider mb-1"><i class="fa-solid fa-check-circle mr-1"></i> Realidad</p>
+                            <p class="font-semibold text-brand-lilaDark">"Cualquier persona puede experimentar un problema de salud mental."</p>
+                            <p class="text-sm text-gray-600 mt-2">1 de cada 7 adolescentes en el mundo experimenta algún reto de salud mental. No estás sol@.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. EMOCIONES & RUEDA INTERACTIVA -->
+        <section id="emociones" class="py-16 bg-brand-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-brand-lilaMedium font-bold text-sm tracking-wider uppercase">Tu brújula interna</span>
+                    <h2 class="font-title text-3xl sm:text-4xl font-bold text-brand-lilaDark mt-2">Reconocer y Gestionar tus Emociones</h2>
+                    <p class="text-brand-textDark/80 mt-4 text-lg">
+                        Las emociones no son "buenas" ni "malas"; todas traen un mensaje sobre lo que necesitas. Toca cualquier emoción abajo para aprender a regularla.
+                    </p>
+                </div>
+
+                <!-- Buscador / Selector de Emociones Interactivo -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 mb-8">
+                    <button onclick="selectEmotion('tristeza')" class="emotion-btn p-4 rounded-2xl bg-white border border-brand-softPink hover:bg-brand-softPink/50 transition-all text-center group active font-bold text-brand-lilaDark" data-emotion="tristeza">
+                        <i class="fa-solid fa-cloud-rain text-2xl text-blue-400 mb-2 block group-hover:scale-110 transition-transform"></i>
+                        Tristeza
+                    </button>
+                    <button onclick="selectEmotion('rabia')" class="emotion-btn p-4 rounded-2xl bg-white border border-brand-softPink hover:bg-brand-softPink/50 transition-all text-center group font-bold text-brand-lilaDark" data-emotion="rabia">
+                        <i class="fa-solid fa-fire text-2xl text-red-400 mb-2 block group-hover:scale-110 transition-transform"></i>
+                        Enojo / Rabia
+                    </button>
+                    <button onclick="selectEmotion('miedo')" class="emotion-btn p-4 rounded-2xl bg-white border border-brand-softPink hover:bg-brand-softPink/50 transition-all text-center group font-bold text-brand-lilaDark" data-emotion="miedo">
+                        <i class="fa-solid fa-ghost text-2xl text-purple-400 mb-2 block group-hover:scale-110 transition-transform"></i>
+                        Miedo
+                    </button>
+                    <button onclick="selectEmotion('ansiedad')" class="emotion-btn p-4 rounded-2xl bg-white border border-brand-softPink hover:bg-brand-softPink/50 transition-all text-center group font-bold text-brand-lilaDark" data-emotion="ansiedad">
+                        <i class="fa-solid fa-bolt text-2xl text-yellow-500 mb-2 block group-hover:scale-110 transition-transform"></i>
+                        Ansiedad
+                    </button>
+                    <button onclick="selectEmotion('culpa')" class="emotion-btn p-4 rounded-2xl bg-white border border-brand-softPink hover:bg-brand-softPink/50 transition-all text-center group font-bold text-brand-lilaDark" data-emotion="culpa">
+                        <i class="fa-solid fa-weight-hanging text-2xl text-gray-400 mb-2 block group-hover:scale-110 transition-transform"></i>
+                        Culpa
+                    </button>
+                    <button onclick="selectEmotion('alegria')" class="emotion-btn p-4 rounded-2xl bg-white border border-brand-softPink hover:bg-brand-softPink/50 transition-all text-center group font-bold text-brand-lilaDark" data-emotion="alegria">
+                        <i class="fa-solid fa-sun text-2xl text-amber-400 mb-2 block group-hover:scale-110 transition-transform"></i>
+                        Calma / Alegría
+                    </button>
+                </div>
+
+                <!-- Dynamic Emotion Card Display -->
+                <div id="emotion-detail" class="bg-white rounded-3xl p-8 border border-brand-softPink custom-shadow-lg transition-all duration-300">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. ANSIEDAD & ESTRÉS + EJERCICIO DE RESPIRACIÓN GUIADO -->
+        <section id="ansiedad" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="text-brand-lilaMedium font-bold text-sm tracking-wider uppercase">Comprender para aliviar</span>
+                        <h2 class="font-title text-3xl sm:text-4xl font-bold text-brand-lilaDark">Ansiedad y Estrés en la Escuela y la Vida</h2>
+                        <p class="text-brand-textDark/80 text-base leading-relaxed">
+                            La ansiedad es una reacción natural de alerta ante situaciones que percibimos como amenazantes (exámenes, cambios físicos, encajar en grupos). Se vuelve un problema cuando la alarma suena sin parar.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-bg">
+                                <div class="w-10 h-10 rounded-xl bg-brand-softPink flex items-center justify-center text-brand-lilaDark shrink-0">
+                                    <i class="fa-solid fa-heart-pulse"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-lilaDark">Síntomas Físicos</h4>
+                                    <p class="text-sm text-brand-textDark/70">Nudo en el estómago, taquicardia, sudoración, falta de aire o tensión muscular.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 p-4 rounded-2xl bg-brand-bg">
+                                <div class="w-10 h-10 rounded-xl bg-brand-lilaLight flex items-center justify-center text-brand-lilaDark shrink-0">
+                                    <i class="fa-solid fa-head-side-virus"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-lilaDark">Síntomas Pensamientos</h4>
+                                    <p class="text-sm text-brand-textDark/70">Pensamientos catastróficos ("algo malo pasará"), mente acelerada o bloqueo.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Técnica Grounding 5-4-3-2-1 -->
+                        <div class="mt-6 p-6 rounded-3xl bg-gradient-to-br from-brand-bg to-brand-softPink/30 border border-brand-softPink">
+                            <h4 class="font-title font-bold text-brand-lilaDark text-lg mb-2"><i class="fa-solid fa-anchor text-brand-lilaMedium mr-2"></i>Técnica de Anclaje 5-4-3-2-1</h4>
+                            <p class="text-xs text-brand-textDark/80 mb-3">Cuando sientas que la ansiedad te desborda, observa a tu alrededor:</p>
+                            <ul class="text-xs sm:text-sm space-y-1.5 text-brand-textDark font-medium">
+                                <li>👀 <strong>5 cosas</strong> que puedas ver.</li>
+                                <li>✋ <strong>4 cosas</strong> que puedas tocar.</li>
+                                <li>👂 <strong>3 sonidos</strong> que puedas escuchar.</li>
+                                <li>🌸 <strong>2 olores</strong> que puedas percibir.</li>
+                                <li>👅 <strong>1 sabor</strong> en tu boca.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Breathing Exercise -->
+                    <div class="lg:col-span-6 bg-brand-bg p-8 rounded-3xl border border-brand-softPink text-center custom-shadow">
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-lilaMedium">Herramienta Interactiva</span>
+                        <h3 class="font-title text-2xl font-bold text-brand-lilaDark mt-1">Respiración Guiada 4-7-8</h3>
+                        <p class="text-sm text-brand-textDark/70 mt-2 mb-8">Esta técnica ralentiza el ritmo cardíaco y calma el sistema nervioso.</p>
+
+                        <!-- Visual Circle -->
+                        <div class="relative w-48 h-48 sm:w-64 sm:h-64 mx-auto flex items-center justify-center mb-8">
+                            <div id="breathing-circle-outer" class="absolute inset-0 rounded-full bg-brand-softPink/60 breathing-circle"></div>
+                            <div class="relative z-10 w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-white shadow-xl flex flex-col items-center justify-center p-4 border-2 border-brand-accentPink">
+                                <span id="breath-phase" class="text-lg font-bold text-brand-lilaDark">Listo/a?</span>
+                                <span id="breath-timer" class="text-3xl font-extrabold text-brand-lilaMedium mt-1">0</span>
+                            </div>
+                        </div>
+
+                        <!-- Breath Controls -->
+                        <div class="flex justify-center gap-4">
+                            <button id="start-breath-btn" onclick="toggleBreathing()" class="bg-brand-lilaMedium hover:bg-brand-lilaDark text-white px-6 py-3 rounded-2xl font-bold transition-all shadow-md">
+                                <i class="fa-solid fa-play mr-2"></i> Iniciar Respiración
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. AUTOESTIMA & GENERADOR DE AFIRMACIONES -->
+        <section id="autoestima" class="py-16 bg-gradient-to-b from-brand-bg via-white to-brand-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-brand-lilaMedium font-bold text-sm tracking-wider uppercase">Amor propio & Aceptación</span>
+                    <h2 class="font-title text-3xl sm:text-4xl font-bold text-brand-lilaDark mt-2">Construyendo una Autoestima Sana</h2>
+                    <p class="text-brand-textDark/80 mt-4 text-lg">
+                        La autoestima no es creer que eres perfect@, sino tratarte con gentileza cuando cometes errores o atraviesas un mal día.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-3xl border border-brand-softPink shadow-sm">
+                            <h3 class="font-title text-xl font-bold text-brand-lilaDark mb-2">Desactiva tu Voz Crítica Interior</h3>
+                            <p class="text-sm text-brand-textDark/80 leading-relaxed">
+                                A menudo nos decimos cosas a nosotros mismos que jamás le diríamos a un amigo querido. Cuando notes pensamientos duros ("no sirvo para nada"), pregúntate: ¿Le diría esto a mi mejor amigo?
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-3xl border border-brand-softPink shadow-sm">
+                            <h3 class="font-title text-xl font-bold text-brand-lilaDark mb-2">Aceptación Corporal e Identidad</h3>
+                            <p class="text-sm text-brand-textDark/80 leading-relaxed">
+                                Tu cuerpo está atravesando cambios increíbles en esta etapa. Agradece lo que te permite hacer en lugar de juzgar solo su apariencia externa.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Generador de Afirmaciones -->
+                    <div class="bg-white p-8 rounded-3xl border-2 border-brand-softPink text-center custom-shadow">
+                        <div class="w-16 h-16 rounded-full bg-brand-softPink/60 text-brand-lilaMedium mx-auto flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-sparkles"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase text-brand-lilaMedium tracking-widest">Inspiración Diaria</span>
+                        <h3 class="font-title text-2xl font-bold text-brand-lilaDark mt-1 mb-6">Generador de Afirmaciones Positivas</h3>
+
+                        <div id="affirmation-box" class="p-6 rounded-2xl bg-brand-bg text-brand-lilaDark font-title text-lg italic border border-brand-softPink min-h-[120px] flex items-center justify-center mb-6">
+                            "Merezco ocupar espacio en el mundo tal y como soy hoy."
+                        </div>
+
+                        <button onclick="generateAffirmation()" class="bg-brand-lilaMedium hover:bg-brand-lilaDark text-white px-6 py-3 rounded-2xl font-bold transition-all shadow-md flex items-center justify-center gap-2 mx-auto">
+                            <i class="fa-solid fa-rotate"></i> Otra frase de amor propio
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. DEPRESIÓN Y SEÑALES DE ALERTA -->
+        <section id="depresion" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-12">
+                    <span class="text-brand-lilaMedium font-bold text-sm tracking-wider uppercase">Información Responsable</span>
+                    <h2 class="font-title text-3xl sm:text-4xl font-bold text-brand-lilaDark mt-2">Depresión y Señales de Alerta</h2>
+                    <p class="text-brand-textDark/80 mt-4 text-lg">
+                        Estar triste es una emoción temporal, pero la depresión es un estado prolongado que afecta cómo piensas, sientes y te desenvuelves. Reconocer las señales a tiempo salva vidas.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Señales en ti o amigos -->
+                    <div class="bg-brand-bg p-8 rounded-3xl border border-brand-softPink">
+                        <h3 class="font-title text-xl font-bold text-brand-lilaDark mb-4 flex items-center gap-3">
+                            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Señales para prestar atención
+                        </h3>
+                        <ul class="space-y-3 text-sm text-brand-textDark/80">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-dot text-brand-lilaMedium mt-1"></i>
+                                <span>Pérdida de interés en actividades que antes te apasionaban.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-dot text-brand-lilaMedium mt-1"></i>
+                                <span>Sensación persistente de vacío, tristeza o desesperanza por más de 2 semanas.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-dot text-brand-lilaMedium mt-1"></i>
+                                <span>Aislamiento continuo de amigos y seres queridos.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-dot text-brand-lilaMedium mt-1"></i>
+                                <span>Cambios drásticos en el sueño (insomnio o dormir demasiado) o en el apetito.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-dot text-brand-lilaMedium mt-1"></i>
+                                <span>Pensamientos de querer desaparecer o hacerse daño.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Qué hacer -->
+                    <div class="bg-gradient-to-br from-brand-lilaLight/30 to-brand-softPink/40 p-8 rounded-3xl border border-brand-softPink flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-title text-xl font-bold text-brand-lilaDark mb-4 flex items-center gap-3">
+                                <i class="fa-solid fa-hand-holding-heart text-brand-lilaMedium"></i> ¿Qué hacer si notas esto?
+                            </h3>
+                            <p class="text-sm text-brand-textDark/80 leading-relaxed mb-4">
+                                No te guardes el dolor en silencio. La depresión es tratable y superable con el acompañamiento adecuado.
+                            </p>
+                            <p class="text-sm text-brand-textDark/80 leading-relaxed font-semibold">
+                                Si un amigo o tú sienten que no pueden más, hablar con un adulto de confianza (padres, profesores, orientadores) o llamar a una línea de crisis es el primer gran paso.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-brand-lilaMedium/20">
+                            <a href="#pide-ayuda" class="inline-flex items-center gap-2 text-brand-lilaDark font-bold text-sm hover:underline">
+                                Ver canales de ayuda rápida <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. REDES SOCIALES & BIENESTAR DIGITAL -->
+        <section id="redes" class="py-16 bg-brand-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-brand-lilaMedium font-bold text-sm tracking-wider uppercase">Vida Online Saludable</span>
+                    <h2 class="font-title text-3xl sm:text-4xl font-bold text-brand-lilaDark mt-2">Redes Sociales y Bienestar Digital</h2>
+                    <p class="text-brand-textDark/80 mt-4 text-lg">
+                        Las redes son geniales para conectar, pero también pueden alimentar la comparación irreal y el FOMO (miedo a perderte de algo).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Interactive Checklist -->
+                    <div class="lg:col-span-7 bg-white p-8 rounded-3xl border border-brand-softPink custom-shadow">
+                        <h3 class="font-title text-2xl font-bold text-brand-lilaDark mb-2">Checklist de Hábitos Digitales</h3>
+                        <p class="text-sm text-brand-textDark/70 mb-6">Marca las prácticas que realizas o que te comprometes a probar esta semana:</p>
+
+                        <div class="space-y-4" id="digital-checklist">
+                            <label class="flex items-center gap-3 p-3.5 rounded-2xl bg-brand-bg hover:bg-brand-softPink/30 transition-colors cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 rounded text-brand-lilaMedium focus:ring-brand-accentPink">
+                                <span class="text-sm font-medium text-brand-textDark">Dejo el celular fuera de la cama 30 min antes de dormir.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3.5 rounded-2xl bg-brand-bg hover:bg-brand-softPink/30 transition-colors cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 rounded text-brand-lilaMedium focus:ring-brand-accentPink">
+                                <span class="text-sm font-medium text-brand-textDark">Dejo de seguir cuentas que me hacen sentir mal con mi cuerpo o vida.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3.5 rounded-2xl bg-brand-bg hover:bg-brand-softPink/30 transition-colors cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 rounded text-brand-lilaMedium focus:ring-brand-accentPink">
+                                <span class="text-sm font-medium text-brand-textDark">Recuerdo que lo que veo en redes es solo un "resumen con filtro" de los demás.</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3.5 rounded-2xl bg-brand-bg hover:bg-brand-softPink/30 transition-colors cursor-pointer">
+                                <input type="checkbox" class="w-5 h-5 rounded text-brand-lilaMedium focus:ring-brand-accentPink">
+                                <span class="text-sm font-medium text-brand-textDark">Tomo pausas consciente (detox digital de un fin de semana o una tarde).</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="p-6 rounded-3xl bg-white border border-brand-softPink">
+                            <div class="text-brand-lilaMedium text-3xl mb-3"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                            <h4 class="font-title font-bold text-lg text-brand-lilaDark">Regla de Oro</h4>
+                            <p class="text-sm text-brand-textDark/80 mt-1">
+                                Si una aplicación te genera ansiedad, enojo constante o baja autoestima cada vez que la abres, es momento de silenciarla o tomar distancia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. RELACIONES SALUDABLES VS TÓXICAS -->
+        <section id="relaciones" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-brand-lilaMedium font-bold text-sm tracking-wider uppercase">Vínculos Seguros</span>
+                    <h2 class="font-title text-3xl sm:text-4xl font-bold text-brand-lilaDark mt-2">Relaciones Saludables y Límites</h2>
+                    <p class="text-brand-textDark/80 mt-4 text-lg">
+                        Las buenas amistades y parejas te hacen sentir segur@, respetad@ y libre de ser tú mism@.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Saludables -->
+                    <div class="bg-green-50/60 p-8 rounded-3xl border border-green-200">
+                        <h3 class="font-title text-xl font-bold text-green-800 mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-heart text-green-500"></i> Relación Saludable
+                        </h3>
+                        <ul class="space-y-4 text-sm text-green-900">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-600 mt-1"></i>
+                                <span>Respetan tus tiempos, decisiones y opiniones personales.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-600 mt-1"></i>
+                                <span>Celebran tus logros sin envidia ni competencia.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check text-green-600 mt-1"></i>
+                                <span>Puedes decir "No" sin miedo a que se enojen o te castiguen con el silencio.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tóxicas -->
+                    <div class="bg-red-50/60 p-8 rounded-3xl border border-red-200">
+                        <h3 class="font-title text-xl font-bold text-red-800 mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500"></i> Señales Tóxicas o Inseguras
+                        </h3>
+                        <ul class="space-y-4 text-sm text-red-900">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-xmark text-red-600 mt-1"></i>
+                                <span>Intentan aislarte de tus amigos o familia.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-xmark text-red-600 mt-1"></i>
+                                <span>Revisan tu celular, contraseñas o exigen saber dónde estás todo el tiempo.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-xmark text-red-600 mt-1"></i>
+                                <span>Se burlan de tus sentimientos diciendo que "eres demasiado dramátic@".</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. CONSEJOS DE AUTOCUIDADO (SELF-CARE) -->
+        <section id="autocuidado" class="py-16 bg-brand-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-brand-lilaMedium font-bold text-sm tracking-wider uppercase">Rutinas Diarias</span>
+                    <h2 class="font-title text-3xl sm:text-4xl font-bold text-brand-lilaDark mt-2">Hábitos para Cuidar tu Mente</h2>
+                    <p class="text-brand-textDark/80 mt-4 text-lg">
+                        El autocuidado no es solo mascarillas faciales; son pequeñas decisiones diarias que protegen tu paz mental.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-3xl border border-brand-softPink text-center hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl mx-auto mb-4">
+                            <i class="fa-solid fa-bed"></i>
+                        </div>
+                        <h3 class="font-title font-bold text-brand-lilaDark text-lg mb-2">Descanso de Calidad</h3>
+                        <p class="text-xs text-brand-textDark/70 leading-relaxed">Duerme entre 8 y 10 horas. Tu cerebro necesita ese tiempo para procesar lo aprendido y regular tus emociones.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-3xl border border-brand-softPink text-center hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl mx-auto mb-4">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <h3 class="font-title font-bold text-brand-lilaDark text-lg mb-2">Organización Escolar</h3>
+                        <p class="text-xs text-brand-textDark/70 leading-relaxed">Divide tareas grandes en pequeños pasos de 15 minutos para evitar la procrastinación y la abrumación.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-3xl border border-brand-softPink text-center hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 rounded-2xl bg-green-100 text-green-600 flex items-center justify-center text-xl mx-auto mb-4">
+                            <i class="fa-solid fa-person-running"></i>
+                        </div>
+                        <h3 class="font-title font-bold text-brand-lilaDark text-lg mb-2">Mueve tu Cuerpo</h3>
+                        <p class="text-xs text-brand-textDark/70 leading-relaxed">Baila, camina, salta. El movimiento libera endorfinas y reduce naturalmente la tensión corporal.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-3xl border border-brand-softPink text-center hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 rounded-2xl bg-pink-100 text-pink-600 flex items-center justify-center text-xl mx-auto mb-4">
+                            <i class="fa-solid fa-journal-whills"></i>
+                        </div>
+                        <h3 class="font-title font-bold text-brand-lilaDark text-lg mb-2">Escribir lo que sientes</h3>
+                        <p class="text-xs text-brand-textDark/70 leading-relaxed">Escribir en un diario ayuda a vaciar la mente cuando está sobrecargada de pensamientos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. PIDE AYUDA (SECCIÓN PRIORITARIA S.O.S.) -->
+        <section id="pide-ayuda" class="py-16 bg-gradient-to-br from-brand-lilaDark via-brand-lilaMedium to-brand-lilaDark text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-white/20 text-brand-softPink text-xs font-bold uppercase tracking-wider mb-3">Sección Prioritaria / S.O.S.</span>
+                    <h2 class="font-title text-3xl sm:text-5xl font-bold">No tienes que pasar por esto sol@</h2>
+                    <p class="text-brand-softPink/90 mt-4 text-lg">
+                        Pedir ayuda es un acto de gran valentía. Hay personas capacitadas y dispuestas a escucharte sin juzgarte.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Opción 1 -->
+                    <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20">
+                        <div class="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center text-brand-softPink text-2xl mb-4">
+                            <i class="fa-solid fa-user-group"></i>
+                        </div>
+                        <h3 class="font-title text-xl font-bold mb-2">Adultos de Confianza</h3>
+                        <p class="text-sm text-brand-softPink/80 leading-relaxed">
+                            Acércate a un profesor, escolar, familiar, orientador o médico de cabecera. Diles: "Necesito hablar sobre cómo me he sentido últimamente".
+                        </p>
+                    </div>
+
+                    <!-- Opción 2 -->
+                    <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20">
+                        <div class="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center text-brand-softPink text-2xl mb-4">
+                            <i class="fa-solid fa-stethoscope"></i>
+                        </div>
+                        <h3 class="font-title text-xl font-bold mb-2">Atención Profesional</h3>
+                        <p class="text-sm text-brand-softPink/80 leading-relaxed">
+                            Un/a psicólogo/a o psiquiatra es un especialista en salud mental. Ir a terapia es tan normal como ir al dentista.
+                        </p>
+                    </div>
+
+                    <!-- Opción 3 Líneas S.O.S -->
+                    <div class="bg-white text-brand-textDark p-8 rounded-3xl shadow-xl">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-softPink text-brand-lilaDark flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
+                        <h3 class="font-title text-xl font-bold text-brand-lilaDark mb-2">Líneas Gratuitas 24/7</h3>
+                        <p class="text-xs text-gray-600 mb-4">Líneas de crisis internacionales y locales gratuitas y confidenciales:</p>
+                        <ul class="text-xs space-y-2 font-semibold text-brand-lilaDark">
+                            <li class="p-2 rounded-xl bg-brand-bg flex justify-between items-center">
+                                <span>📱 Línea Nacional Crisis:</span>
+                                <span class="bg-brand-lilaMedium text-white px-2.5 py-1 rounded-lg">911 / 106</span>
+                            </li>
+                            <li class="p-2 rounded-xl bg-brand-bg flex justify-between items-center">
+                                <span>💬 Chat Confidencial:</span>
+                                <span class="bg-brand-lilaMedium text-white px-2.5 py-1 rounded-lg">Escribe "AYUDA" al 741741</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. BLOG & RECURSOS + FAQ ACCORDION -->
+        <section id="recursos" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-brand-lilaMedium font-bold text-sm tracking-wider uppercase">Aprende & Reflexiona</span>
+                    <h2 class="font-title text-3xl sm:text-4xl font-bold text-brand-lilaDark mt-2">Artículos y Preguntas Frecuentes</h2>
+                </div>
+
+                <!-- Blog Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <article class="bg-brand-bg rounded-3xl overflow-hidden border border-brand-softPink hover:shadow-lg transition-all">
+                        <div class="h-48 bg-gradient-to-r from-brand-softPink to-brand-lilaLight flex items-center justify-center text-brand-lilaDark text-4xl">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-brand-lilaMedium uppercase tracking-wider">Mindfulness</span>
+                            <h3 class="font-title text-xl font-bold text-brand-lilaDark mt-1 mb-2">5 ejercicios rápidos para hacer en clase</h3>
+                            <p class="text-xs text-brand-textDark/70 mb-4">Aprende a calmar los nervios antes de una exposición o examen sin que nadie lo note.</p>
+                            <a href="#contacto" class="text-xs font-bold text-brand-lilaDark hover:underline">Leer más →</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-brand-bg rounded-3xl overflow-hidden border border-brand-softPink hover:shadow-lg transition-all">
+                        <div class="h-48 bg-gradient-to-r from-brand-lilaLight to-brand-softPink flex items-center justify-center text-brand-lilaDark text-4xl">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-brand-lilaMedium uppercase tracking-wider">Comunicación</span>
+                            <h3 class="font-title text-xl font-bold text-brand-lilaDark mt-1 mb-2">Guía para hablar con tus padres de salud mental</h3>
+                            <p class="text-xs text-brand-textDark/70 mb-4">Consejos prácticos para expresar lo que sientes cuando sientes que no entienden.</p>
+                            <a href="#contacto" class="text-xs font-bold text-brand-lilaDark hover:underline">Leer más →</a>
+                        </div>
+                    </article>
+
+                    <article class="bg-brand-bg rounded-3xl overflow-hidden border border-brand-softPink hover:shadow-lg transition-all">
+                        <div class="h-48 bg-gradient-to-r from-brand-softPink to-brand-lilaMedium/30 flex items-center justify-center text-brand-lilaDark text-4xl">
+                            <i class="fa-solid fa-heart-circle-check"></i>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-brand-lilaMedium uppercase tracking-wider">Autoestima</span>
+                            <h3 class="font-title text-xl font-bold text-brand-lilaDark mt-1 mb-2">¿Cómo dejar de compararte en Instagram y TikTok?</h3>
+                            <p class="text-xs text-brand-textDark/70 mb-4">Estrategias sencillas para proteger tu imagen corporal en la era digital.</p>
+                            <a href="#contacto" class="text-xs font-bold text-brand-lilaDark hover:underline">Leer más →</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <h3 class="font-title text-2xl font-bold text-brand-lilaDark text-center mb-6">Preguntas Frecuentes</h3>
+
+                    <!-- Q1 -->
+                    <div class="border border-brand-softPink rounded-2xl overflow-hidden">
+                        <button onclick="toggleFaq('faq1')" class="w-full text-left p-5 font-bold text-brand-lilaDark bg-brand-bg flex justify-between items-center">
+                            <span>¿Es confidencial lo que hablo con un psicólogo?</span>
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </button>
+                        <div id="faq1" class="hidden p-5 bg-white text-sm text-brand-textDark/80 border-t border-brand-softPink">
+                            Sí. Los profesionales de la salud mental tienen secreto profesional por ley. Solo romperían la confidencialidad si tu vida o la de alguien más corre un peligro inminente, con el único fin de protegerte.
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="border border-brand-softPink rounded-2xl overflow-hidden">
+                        <button onclick="toggleFaq('faq2')" class="w-full text-left p-5 font-bold text-brand-lilaDark bg-brand-bg flex justify-between items-center">
+                            <span>¿Ir al psicólogo significa que estoy "loc@"?</span>
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </button>
+                        <div id="faq2" class="hidden p-5 bg-white text-sm text-brand-textDark/80 border-t border-brand-softPink">
+                            Para nada. Ir a terapia es una forma de entrenamiento y cuidado personal, igual que ir al gimnasio o al médico cuando te duele la garganta.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. BUZÓN ANÓNIMO Y CONTACTO -->
+        <section id="contacto" class="py-16 bg-brand-bg">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white p-8 sm:p-10 rounded-3xl border border-brand-softPink custom-shadow">
+                    <div class="text-center mb-8">
+                        <span class="text-brand-lilaMedium font-bold text-sm tracking-wider uppercase">Buzón Anónimo</span>
+                        <h2 class="font-title text-3xl font-bold text-brand-lilaDark mt-1">¿Tienes dudas o quieres desahogarte?</h2>
+                        <p class="text-xs sm:text-sm text-brand-textDark/70 mt-2">
+                            Envíanos tu mensaje. Puedes hacerlo de forma 100% anónima si lo prefieres.
+                        </p>
+                    </div>
+
+                    <form id="anonymous-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-brand-lilaDark uppercase tracking-wider mb-2">Nombre o Apodo (Opcional)</label>
+                            <input type="text" placeholder="Ej. Anónimo / Valiente123" class="w-full p-4 rounded-2xl bg-brand-bg border border-brand-softPink focus:outline-none focus:ring-2 focus:ring-brand-lilaMedium text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-brand-lilaDark uppercase tracking-wider mb-2">Correo (Opcional para recibir respuesta)</label>
+                            <input type="email" placeholder="tu@correo.com" class="w-full p-4 rounded-2xl bg-brand-bg border border-brand-softPink focus:outline-none focus:ring-2 focus:ring-brand-lilaMedium text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-brand-lilaDark uppercase tracking-wider mb-2">Tu Mensaje o Pregunta *</label>
+                            <textarea required rows="4" placeholder="Escribe aquí libremente lo que sientes..." class="w-full p-4 rounded-2xl bg-brand-bg border border-brand-softPink focus:outline-none focus:ring-2 focus:ring-brand-lilaMedium text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-lilaMedium hover:bg-brand-lilaDark text-white font-bold py-4 rounded-2xl transition-all shadow-md">
+                            Enviar Mensaje Seguro
+                        </button>
+                    </form>
+
+                    <div id="form-feedback" class="hidden mt-4 p-4 rounded-2xl bg-green-100 text-green-800 text-sm text-center font-semibold">
+                        ¡Mensaje recibido con éxito! Gracias por compartir. Recuerda que eres valioso/a.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-lilaDark text-white py-12 border-t border-brand-lilaMedium/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 rounded-xl bg-brand-softPink text-brand-lilaDark flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <span class="font-title text-xl font-bold">Cuida tu mente</span>
+                    </div>
+                    <p class="text-xs text-brand-softPink/80 leading-relaxed">
+                        Un espacio educativo e inclusivo dedicado a acompañar y orientar la salud mental de las y los adolescentes.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm text-brand-softPink mb-3">Enlaces Rápidos</h4>
+                    <ul class="text-xs space-y-2 text-white/80">
+                        <li><a href="#inicio" class="hover:underline">Inicio</a></li>
+                        <li><a href="#que-es" class="hover:underline">¿Qué es la Salud Mental?</a></li>
+                        <li><a href="#emociones" class="hover:underline">Gestión de Emociones</a></li>
+                        <li><a href="#pide-ayuda" class="hover:underline text-brand-accentPink font-bold">Líneas de Ayuda S.O.S.</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm text-brand-softPink mb-3">Comunidad</h4>
+                    <div class="flex gap-4 text-lg">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"><i class="fa-brands fa-spotify"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer legal / médico -->
+            <div class="pt-8 border-t border-white/10 text-center text-xs text-brand-softPink/70 space-y-2">
+                <p>
+                    <strong>Aviso Importante:</strong> Este sitio web es de carácter exclusivamente educativo e informativo. No sustituye la valoración, diagnóstico ni tratamiento psicológico o médico profesional. Si atraviesas una crisis, acude al centro de salud más cercano o llama a las líneas de emergencia.
+                </p>
+                <p>© 2026 Cuida tu mente. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC & INTERACTION JAVASCRIPT -->
+    <script>
+        // Data for Emotions interactive tab
+        const emotionsData = {
+            tristeza: {
+                title: "Tristeza",
+                icon: "fa-cloud-rain",
+                color: "text-blue-500",
+                description: "La tristeza te avisa que has perdido algo valioso o que necesitas una pausa para sanar. No la reprimas.",
+                tips: [
+                    "Permítete llorar si lo necesitas; libera tensión química.",
+                    "Habla de cómo te sientes con alguien de confianza.",
+                    "Pasa tiempo en calma sin exigirte productividad."
+                ]
+            },
+            rabia: {
+                title: "Enojo / Rabia",
+                icon: "fa-fire",
+                color: "text-red-500",
+                description: "La rabia aparece cuando sientes que se ha cometido una injusticia o se ha cruzado un límite personal.",
+                tips: [
+                    "Tómate un tiempo fuera antes de reaccionar de inmediato.",
+                    "Descarga la energía física haciendo ejercicio o apretando un cojín.",
+                    "Expresa lo que te molestó usando frases en primera persona ('Yo me sentí...')."
+                ]
+            },
+            miedo: {
+                title: "Miedo",
+                icon: "fa-ghost",
+                color: "text-purple-500",
+                description: "Su función es protegerte del peligro. A veces se activa ante situaciones nuevas o desconocidas.",
+                tips: [
+                    "Pregúntate: ¿El peligro es real o es un pensamiento catastrófico?",
+                    "Haz pequeñas acciones paulatinas para ganar confianza.",
+                    "Apóyate en personas que te den seguridad."
+                ]
+            },
+            ansiedad: {
+                title: "Ansiedad",
+                icon: "fa-bolt",
+                color: "text-yellow-600",
+                description: "Es una respuesta de preocupación anticipada sobre lo que podría pasar en el futuro.",
+                tips: [
+                    "Utiliza el ejercicio de respiración 4-7-8 de esta página.",
+                    "Enfócate en lo que SÍ puedes controlar hoy.",
+                    "Practica la técnica de anclaje 5-4-3-2-1."
+                ]
+            },
+            culpa: {
+                title: "Culpa",
+                icon: "fa-weight-hanging",
+                color: "text-gray-500",
+                description: "Aparece cuando crees haber actuado en contra de tus valores o haber dañado a alguien.",
+                tips: [
+                    "Diferencia entre culpa sana (para reparar) y autocastigo infructuoso.",
+                    "Si cometiste un error, pide disculpas sinceras.",
+                    "Aprende de la experiencia y perdónate."
+                ]
+            },
+            alegria: {
+                title: "Calma y Alegría",
+                icon: "fa-sun",
+                color: "text-amber-500",
+                description: "Te conecta con el disfrute, la gratitud y el bienestar presente.",
+                tips: [
+                    "Disfruta el momento sin prisa por lo que vendrá después.",
+                    "Escribe en tu diario 3 cosas por las que estés agradecid@ hoy.",
+                    "Comparte tu buena energía con quienes te rodean."
+                ]
+            }
+        };
+
+        // Select Emotion Function
+        function selectEmotion(key) {
+            const data = emotionsData[key];
+            const container = document.getElementById('emotion-detail');
+            
+            // Highlight active button
+            document.querySelectorAll('.emotion-btn').forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-brand-lilaMedium', 'bg-brand-softPink/40');
+            });
+            const activeBtn = document.querySelector(`[data-emotion="${key}"]`);
+            if (activeBtn) activeBtn.classList.add('ring-2', 'ring-brand-lilaMedium', 'bg-brand-softPink/40');
+
+            container.innerHTML = `
+                <div class="flex items-center gap-4 mb-4">
+                    <i class="fa-solid ${data.icon} text-3xl ${data.color}"></i>
+                    <h3 class="font-title text-2xl font-bold text-brand-lilaDark">${data.title}</h3>
+                </div>
+                <p class="text-brand-textDark/80 text-base mb-6">${data.description}</p>
+                <h4 class="font-bold text-brand-lilaDark text-sm uppercase tracking-wider mb-3">Estrategias recomendadas:</h4>
+                <ul class="space-y-2">
+                    ${data.tips.map(tip => `<li class="flex items-start gap-2 text-sm text-brand-textDark"><i class="fa-solid fa-check text-brand-lilaMedium mt-1"></i> ${tip}</li>`).join('')}
+                </ul>
+            `;
+        }
+
+        // Positive Affirmations Array
+        const affirmations = [
+            "Merezco ocupar espacio en el mundo tal y como soy hoy.",
+            "Está bien no tener todo resuelto de inmediato.",
+            "Mis emociones son válidas y merecen ser escuchadas.",
+            "Soy más fuerte que las dudas en mi cabeza.",
+            "Mi valor no depende de la aprobación de los demás.",
+            "Cometer errores es solo una forma de aprender, no define quién soy.",
+            "Hoy elijo tratarme con la misma amabilidad que le doy a un amigo."
+        ];
+
+        function generateAffirmation() {
+            const box = document.getElementById('affirmation-box');
+            const random = affirmations[Math.floor(Math.random() * affirmations.length)];
+            box.style.opacity = 0;
+            setTimeout(() => {
+                box.innerText = `"${random}"`;
+                box.style.opacity = 1;
+            }, 200);
+        }
+
+        // Breathing exercise logic
+        let breathingInterval = null;
+        let isBreathingActive = false;
+
+        function toggleBreathing() {
+            const btn = document.getElementById('start-breath-btn');
+            const circle = document.getElementById('breathing-circle-outer');
+            const phaseText = document.getElementById('breath-phase');
+            const timerText = document.getElementById('breath-timer');
+
+            if (!isBreathingActive) {
+                isBreathingActive = true;
+                btn.innerHTML = '<i class="fa-solid fa-stop mr-2"></i> Detener Respiración';
+                circle.classList.add('is-breathing');
+
+                let count = 0;
+                const cycle = () => {
+                    // 19-second total loop: 4s Inhale, 7s Hold, 8s Exhale
+                    let phaseTime = count % 19;
+                    if (phaseTime < 4) {
+                        phaseText.innerText = "Inhala...";
+                        timerText.innerText = 4 - phaseTime;
+                    } else if (phaseTime < 11) {
+                        phaseText.innerText = "Sostén...";
+                        timerText.innerText = 11 - phaseTime;
+                    } else {
+                        phaseText.innerText = "Exhala suavemente...";
+                        timerText.innerText = 19 - phaseTime;
+                    }
+                    count++;
+                };
+
+                cycle();
+                breathingInterval = setInterval(cycle, 1000);
+            } else {
+                isBreathingActive = false;
+                clearInterval(breathingInterval);
+                btn.innerHTML = '<i class="fa-solid fa-play mr-2"></i> Reanudar Respiración';
+                circle.classList.remove('is-breathing');
+                phaseText.innerText = "Listo/a?";
+                timerText.innerText = "0";
+            }
+        }
+
+        // Toggle FAQ Accordion
+        function toggleFaq(id) {
+            const element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+
+        // Handle Anonymous Form Submit
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('form-feedback');
+            feedback.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                feedback.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Initial setup
+        window.onload = function() {
+            selectEmotion('tristeza');
+        };
+    </script>
+</body>
+</html>
